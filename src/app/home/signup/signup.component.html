@@ -1,0 +1,42 @@
+<div class="signup-container">
+  <div class="row">
+    <div class="col-sm-4 col-md-4"></div>
+    <div class="col-sm-4 col-md-4 heading">
+      <div class="left">
+        <h2 class="heading-title"> Voteplex </h2>
+      </div>
+      <div class="right">
+        <button class="btn btn-default heading-buttons" 
+          (click)="goBack()" style="width: 80px">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Back
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-md-4"></div>
+    <div class="col-sm-4 col-md-4 signup-form">
+      <div class="form-group">
+        <label> Email </label>
+        <input type="email" class="form-control" placeholder="Email"
+          [(ngModel)]="signup_email">
+      </div>
+      <div class="form-group">
+        <label> Username </label>
+        <input type="text" class="form-control" placeholder="Username"
+          [(ngModel)]="signup_username">
+      </div>
+      <div class="form-group">
+        <label> Password </label>
+        <input type="password" class="form-control" placeholder="Password"
+          [(ngModel)]="signup_password">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" (click)="doSignup()">
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
