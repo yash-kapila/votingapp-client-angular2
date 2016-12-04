@@ -1,0 +1,5 @@
+{
+  "/api/*": {
+    "target": "https://votingapp-server-yashkapila.c9users.io"
+  }
+}
