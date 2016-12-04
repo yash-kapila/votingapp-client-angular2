@@ -1,0 +1,27 @@
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.heading{
+    margin-top: 20px;
+    padding: 0px;
+}
+
+.heading-buttons{
+    margin-top: 20px;
+}
+
+.login-form{
+    padding: 25px;
+    margin-top: 60px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
