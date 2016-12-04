@@ -1,0 +1,40 @@
+<div class="dashboard-container">
+  <div class="row">
+    <div class="col-sm-2 col-md-2"></div>
+    <div class="col-sm-8 col-md-8 heading">
+      <div class="left">
+        <h2> Voteplex </h2>
+      </div>
+      <div class="right">
+        <button class="btn btn-default heading-buttons" (click)="doLogout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row caption">
+    <div class="col-sm-2 col-md-2"></div>
+    <div class="col-sm-8 col-md-8 caption-container text-center">
+      <div class="caption-heading">
+        <h2> Dashboard </h2>
+      </div>
+      <div class="caption-title">
+        <h4>
+          What would you like to do today?
+        </h4>
+      </div>
+      <div class="caption-btn">
+      <button class="btn btn-success" (click)="newPollView=true;"> 
+        New Poll
+      </button>
+      <button class="btn btn-info" (click)="newPollView=false;"> 
+        My Polls
+      </button> 
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-newpoll *ngIf="newPollView"></app-newpoll>
+    <app-userpolls *ngIf="!newPollView"></app-userpolls>
+  </div>
+</div>
