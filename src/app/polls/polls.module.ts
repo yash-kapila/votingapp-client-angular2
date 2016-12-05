@@ -13,8 +13,9 @@ import { PollsService } from './polls.service';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: 'polls/dashboard', component: PollsComponent }
+    RouterModule.forChild([
+      { path: 'dashboard', component: PollsComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ])
   ],
   declarations: [
