@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { PollsComponent } from './polls.component';
 import { NewpollComponent } from './newpoll/newpoll.component';
 import { UserpollsComponent } from './userpolls/userpolls.component';
+
 import { PollsService } from './polls.service';
 
 @NgModule({
