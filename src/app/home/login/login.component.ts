@@ -1,7 +1,8 @@
-limport { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { HomeService } from '../home.service';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,11 @@ import { HomeService } from '../home.service';
 export class LoginComponent implements OnInit {
   login_username: string;
   login_password: string;
-  res: any;
+  
 
-  constructor(private _router: Router, private _homeService: HomeService) { 
+  constructor(private _router: Router, 
+              private _homeService: HomeService,
+              private _sharedService: SharedService) { 
     this.login_username = "";
     this.login_password = "";
   }
@@ -26,13 +29,17 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(): void{
-    console.log("Username: " + this.login_username);
-    console.log("Password: " + this.login_password);
-    
     this._homeService.login().subscribe(
-      success => this.res = success
+      data => { 
+        // set username for post login components use
+        this._sharedService.setUserDetails(data['username']);
+
+        // go to dashboard after successful login
+        this._router.navigate(['/polls', 'dashboard']); 
+      },
+      error => {
+        console.log("Error in login API request: " + error);
+      }
     );
-    // go to dashboard after successful login
-    //this._router.navigate(['/polls', 'dashboard']);
   }
 }
