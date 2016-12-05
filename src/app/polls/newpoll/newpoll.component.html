@@ -10,19 +10,19 @@
     </div>
     <div class="form-group text-left">
       <label> Options </label>
-      <div>
-        <input type="text" class="form-control">
+      <div *ngFor="let option of options" class="poll-options">
+        <input type="text" class="form-control" [(ngModel)]="option.value" >
       </div>
     </div>
     <div class="button-group">
       <div>
-        <button class="btn btn-default">
+        <button class="btn btn-default" (click)="addMoreOptions()">
           More Options
         </button>
       </div>
       <br>
       <div>
-        <button class="btn btn-success">
+        <button class="btn btn-success" (click)="submitPoll()">
           Submit Poll
         </button>
       </div>
