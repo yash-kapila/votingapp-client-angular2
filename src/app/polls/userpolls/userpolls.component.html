@@ -12,7 +12,15 @@
             </tr>
           </thead>
           <tbody>
-
+            <tr *ngFor="let poll of polls">
+              <td class="text-center">{{poll.question}}</td>
+              <td class="text-center">{{poll.url}}</td>
+              <td class="text-center">
+                <button class="btn btn-default" (click)="deletePoll(poll)">
+                  Delete
+                </button>
+              </td>
+            </tr>  
           </tbody>
         </table>
       </div>
