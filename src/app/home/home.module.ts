@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { PollsModule } from '../polls/polls.module';
-
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -18,11 +16,11 @@ import { HomeService } from './home.service';
   ],
   imports: [
       FormsModule,
-      PollsModule,
-      RouterModule.forRoot([
+      RouterModule.forChild([
           { path: 'home', component: HomeComponent },
           { path: 'home/login', component: LoginComponent },
-          { path: 'home/signup', component: SignupComponent }
+          { path: 'home/signup', component: SignupComponent },
+          { path: 'polls', loadChildren: 'app/polls/polls.module#PollsModule'}
       ])
   ],
   providers: [ 
