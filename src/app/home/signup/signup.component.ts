@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
         this._sharedService.setUserDetails(data['username']);
 
         // go to dashboard after successful signup
-        this._router.navigate(['/polls', 'dashboard']);
+        this._router.navigate(['/polls']);
       },
       error => {
         console.log("Error in signup API request: " + error);
