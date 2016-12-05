@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this._sharedService.setUserDetails(data['username']);
 
         // go to dashboard after successful login
-        this._router.navigate(['/polls', 'dashboard']); 
+        this._router.navigate(['/polls']); 
       },
       error => {
         console.log("Error in login API request: " + error);
