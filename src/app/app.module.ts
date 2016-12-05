@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
+import { SharedService } from './shared/shared.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { AppComponent } from './app.component';
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ])
   ],
-  providers: [],
+  providers: [
+    SharedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
