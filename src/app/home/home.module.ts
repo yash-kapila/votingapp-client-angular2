@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ import { HomeService } from './home.service';
   ],
   imports: [
       FormsModule,
+      CommonModule,
       RouterModule.forChild([
           { path: 'home', component: HomeComponent },
           { path: 'home/login', component: LoginComponent },
