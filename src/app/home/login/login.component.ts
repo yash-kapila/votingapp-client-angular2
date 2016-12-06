@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { HomeService } from '../home.service';
 import { SharedService } from '../../shared/shared.service';
+
+import { ILogin } from './login';
 
 @Component({
   selector: 'app-login',
@@ -10,25 +13,26 @@ import { SharedService } from '../../shared/shared.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login_username: string;
-  login_password: string;
+  user: ILogin;
   
-
   constructor(private _router: Router, 
               private _homeService: HomeService,
               private _sharedService: SharedService) { 
-    this.login_username = "";
-    this.login_password = "";
+    this.user = {
+      username: "",
+      password: ""   
+    };
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   goBack(): void{
     this._router.navigate(['/home']);
   }
 
-  doLogin(): void{
+  doLogin(form): void{
+    console.log(form.value);
+    console.log(this.user);
     this._homeService.login().subscribe(
       data => { 
         // set username for post login components use
