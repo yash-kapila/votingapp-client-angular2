@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { HomeService } from '../home.service';
 import { SharedService } from '../../shared/shared.service';
+
+import { ISignUp } from './sign-up';
 
 @Component({
   selector: 'app-signup',
@@ -10,16 +13,16 @@ import { SharedService } from '../../shared/shared.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  signup_username: string;
-  signup_password: string;
-  signup_email: string;
+  user: ISignUp;
   
   constructor(private _router: Router, 
               private _homeService: HomeService,
-              private _sharedService: SharedService) { 
-    this.signup_email = "";
-    this.signup_password = "";
-    this.signup_username = "";
+              private _sharedService: SharedService) {
+    this.user = {
+      username: "",
+      password: "",
+      email: ""
+    } 
   }
 
   ngOnInit() {
@@ -29,7 +32,9 @@ export class SignupComponent implements OnInit {
     this._router.navigate(['/home']);
   }
 
-  doSignup(): void{
+  doSignup(form): void{
+    console.log(form.value);
+    console.log(this.user);
     this._homeService.signUp().subscribe(
       data => {
         // set username for post login components use
